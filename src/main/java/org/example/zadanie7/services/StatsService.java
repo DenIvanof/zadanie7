@@ -53,12 +53,13 @@ public class StatsService {
 
         for (int j = 0; j < sales.length; j++) {
             if (sales[j] < averageSum) minMonth++;  // значит, в рассматриваемом i-м месяце продаж меньше
-                 // запомним его как минимальный
+            // запомним его как минимальный
 
         }
 
         return minMonth; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
     }
+
     public int averageMaxSales(int[] sales) {
         int sum = 0;
         int averageSum = 0;
