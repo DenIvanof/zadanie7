@@ -1,81 +1,55 @@
 package org.example.zadanie7.services;
 
 public class StatsService {
-    public int minSales(int[] sales) {
-        int minMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
-
+    public int minSales(long[] sales) {
+        int minMonth = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] <= sales[minMonth]) { // значит, в рассматриваемом i-м месяце продаж меньше
-                minMonth = i; // запомним его как минимальный
+            if (sales[i] <= sales[minMonth]) {
+                minMonth = i;
             }
         }
-
-        return minMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
+        return minMonth + 1;
     }
 
-    public int maxSales(int[] sales) {
-        int maxMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
-
+    public long maxSales(long[] sales) {
+        int maxMonth = 0;
         for (int i = 0; i < sales.length; i++) {
-            if (sales[i] >= sales[maxMonth]) { // значит, в рассматриваемом i-м месяце продаж меньше
-                maxMonth = i; // запомним его как минимальный
+            if (sales[i] >= sales[maxMonth]) {
+                maxMonth = i;
             }
         }
-
-        return maxMonth + 1; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
+        return maxMonth + 1;
     }
 
-    public int sumSales(int[] sales) {
-        int sum = 0;
+    public long sumSales(long[] sales) {
+        long sum = 0;
         for (int i = 0; i < sales.length; i++) {
             sum = sum + sales[i];
         }
         return sum;
     }
 
-    public int averageSumSales(int[] sales) {
-        int sum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-
-        }
+    public long averageSumSales(long[] sales) {
+        long sum = sumSales(sales);
         return sum / sales.length;
     }
 
-    public int averageMinSales(int[] sales) {
-        int sum = 0;
-        int averageSum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-            averageSum = sum / sales.length;
-        }
-        int minMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
-
+    public int averageMinSales(long[] sales) {
+        long averageSum = averageSumSales(sales);
+        int minMonth = 0;
         for (int j = 0; j < sales.length; j++) {
-            if (sales[j] < averageSum) minMonth++;  // значит, в рассматриваемом i-м месяце продаж меньше
-            // запомним его как минимальный
-
+            if (sales[j] < averageSum) minMonth++;
         }
-
-        return minMonth; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
+        return minMonth;
     }
 
-    public int averageMaxSales(int[] sales) {
-        int sum = 0;
-        int averageSum = 0;
-        for (int i = 0; i < sales.length; i++) {
-            sum = sum + sales[i];
-            averageSum = sum / sales.length;
-        }
-        int maxMonth = 0; // номер месяца с минимальными продажами среди просмотренных ранее
-
+    public int averageMaxSales(long[] sales) {
+        long averageSum = averageSumSales(sales);
+        int maxMonth = 0;
         for (int j = 0; j < sales.length; j++) {
-            if (sales[j] > averageSum) maxMonth++;  // значит, в рассматриваемом i-м месяце продаж меньше
-            // запомним его как минимальный
-
+            if (sales[j] > averageSum) maxMonth++;
         }
-
-        return maxMonth; // месяца нумеруются с 1, а индексы массива с 0, нужно сдвинуть ответ на 1
+        return maxMonth;
     }
 
 
